@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Temperature Visualization</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('blue.jpg');
+            background-size: cover;
+        }
+        #map {
+            width: 100%;
+            max-width: 1200px;
+            height: 800px;
+        }
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 6px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        .legend-container {
+            position: absolute;
+            right: 20px;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .legend {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #line-chart-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            display: none;
+        }
+        #country-map {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            display: none;
+        }
+        #bar-chart-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Global Temperature Visualization</h1>
+    <div id="map"></div>
+    <div class="tooltip" style="opacity: 0;"></div>
+    <div class="legend-container" id="legend-container">
+        <div id="max-temp">30°C</div>
+        <div id="legend"></div>
+        <div id="min-temp">-10°C</div>
+    </div>
+    <div id="line-chart-container">
+        <svg id="line-chart" width="1200" height="500"></svg>
+    </div>
+    <div id="country-map">
+        <svg id="country-svg" width="1200" height="500"></svg>
+    </div>
+    <div id="bar-chart-container">
+        <svg id="bar-chart" width="1200" height="500"></svg>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
